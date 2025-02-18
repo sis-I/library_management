@@ -1,0 +1,35 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2025-02-18 17:13:06.201706",
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letterhead": null,
+ "modified": "2025-02-18 18:42:59.336118",
+ "modified_by": "Administrator",
+ "module": "Library Management",
+ "name": "Loan Overdue Books",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT name, book, loan_date, return_date,\n    member,overdue_date,\n    modified_by AS loaned_by, status\nFROM tabLoan\nWHERE status = \"Overdue\";",
+ "ref_doctype": "Loan",
+ "report_name": "Loan Overdue Books",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Librarian"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Admin"
+  }
+ ],
+ "timeout": 0
+}

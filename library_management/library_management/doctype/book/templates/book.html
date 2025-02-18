@@ -1,0 +1,18 @@
+{% extends "templates/web.html" %} {% block page_content %}
+<h1>{{ title |e }}</h1>
+<div class="container">
+	<div class="row">
+		<div class="col-3" style="width: 18rem;">
+			<img src="{{ image }}" class="img-fluid" alt="{{ title}}" />
+		</div>
+		<div class="col-9">
+			<h5 class="card-title">{{ title }}</h5>
+		</div>
+		<div class="col">
+			<p class="card-text">{{ description }}</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+<!-- this is a sample default web page template -->

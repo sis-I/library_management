@@ -41,6 +41,7 @@ app_license = "mit"
 
 # include js in page
 # page_js = {"page" : "public/js/file.js"}
+# page_js = {"login": "public/js/login.js", "signup": "public/js/signup.js"}
 
 # include js in doctype views
 # doctype_js = {"doctype" : "public/js/doctype.js"}
@@ -140,18 +141,21 @@ app_license = "mit"
 # ---------------
 # Hook on document methods and events
 
-# doc_events = {
+doc_events = {
 # 	"*": {
 # 		"on_update": "method",
 # 		"on_cancel": "method",
 # 		"on_trash": "method"
 # 	}
-# }
+    "User": {
+        "after_insert": "library_management.overrides.user.assign_roles_to_new_user"
+    }
+}
 
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
+scheduler_events = {
 # 	"all": [
 # 		"library_management.tasks.all"
 # 	],
@@ -167,7 +171,10 @@ app_license = "mit"
 # 	"monthly": [
 # 		"library_management.tasks.monthly"
 # 	],
-# }
+    "daily": [
+        "library_management.library_management.tasks.daily.send_notifiction.send_overdue_book_notification"
+    ]
+}
 
 # Testing
 # -------
