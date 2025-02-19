@@ -38,13 +38,12 @@
 						<p class="">{{description |safe}}</p>
 					</div>
 					<div class="col-12 mx-auto"></div>
-                    <div class="col-12 mx-auto">
-                        <p>Available Copies: {{available_copies}}</p>
-                    </div>
-                    <div class="col-12 mx-auto">
-                        <p>Total Copies: {{total_copies}}</p>
-
-                    </div>
+					<div class="col-12 mx-auto">
+						<p>Available Copies: {{available_copies}}</p>
+					</div>
+					<div class="col-12 mx-auto">
+						<p>Total Copies: {{total_copies}}</p>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -52,12 +51,12 @@
 </div>
 
 <script>
-	document.querySelector("#borrow-btn").addEventListener("click", (e) => {
+	const borrowBtn = document.querySelector("#borrow-btn");
+	borrowBtn.addEventListener("click", (e) => {
 		e.preventDefault();
 		alert("Borrowing request sent!");
 
 		bookName = window.location.href.split("books/")[1];
-		console.log(bookName);
 		fetch(
 			`/api/method/library_management.overrides.loan.request_book_loan?book_name=${bookName}`,
 			{
@@ -71,20 +70,14 @@
 		)
 			.then((response) => response.json())
 			.then((data) => {
-				alert(data.message.message);
+                alert(data.message.message);
+				if (data.message.book_status !== "Available") {
+                    borrowBtn.disabled = true;
+				}
 			})
 			.catch((error) => {
 				console.error("Error:", error);
 			});
-		/**frappe.call({
-                    method: 'library_management.library_management.doctype.book.book.borrow_book',
-                    args: {
-                        book_name: bookName
-                    },
-                    callback: function(r) {
-                        console.log(r);
-                    }
-                });  **/
 	});
 </script>
 {% endblock %}

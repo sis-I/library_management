@@ -9,11 +9,11 @@ from frappe.model.docstatus import DocStatus
 class Loan(Document):
     def before_save(self):
         # Ensure loan date is not past date
-        # if self.loan_date < frappe.utils.today():
-        #     frappe.throw("Loan date cannot be a past date!")
+        if self.loan_date < frappe.utils.today():
+            frappe.throw("Loan date cannot be a past date!")
 
         # Ensure that return date do not exceed max loan days
-        # self.validate_max_loan_days()
+        self.validate_max_loan_days()
 
         loan_period = frappe.db.get_single_value('Library Settings', 'loan_period')
         self.overdue_date = frappe.utils.add_days(self.loan_date, loan_period + 1)
@@ -24,7 +24,7 @@ class Loan(Document):
 
     def before_update_after_submit(self):
         # Apply validation if the loan status is changed
-        # self.validate_status()
+        self.validate_status()
         pass
 
     def validate_status(self):
@@ -33,16 +33,20 @@ class Loan(Document):
         """
         if self.status == 'On Loan':
             self.validate_onloan()
+            self.loan_date = frappe.utils.today()
+
             book = frappe.get_doc('Book', self.book)
             book.available_copies -= 1
 
             if book.available_copies < 1:
                 book.status = 'On Loan'
+            
 
             book.save()
 
         elif self.status == 'Returned':
             self.validate_returned()
+            self.return_date = frappe.utils.today()
 
             book = frappe.get_doc('Book', self.book)
             book.available_copies += 1
@@ -55,6 +59,7 @@ class Loan(Document):
         elif self.status == 'Overdue':
             pass
 
+
     def validate_onloan(self):
         # Check for memebership validation
         self.validate_membership()
@@ -66,6 +71,7 @@ class Loan(Document):
         # Check if the book is already on loan
         if book.status == 'On Loan':
             frappe.throw('Book is already on loan!')
+
 
     def validate_returned(self):
         book = frappe.get_doc('Book', self.book)

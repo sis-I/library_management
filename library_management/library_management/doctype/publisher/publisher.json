@@ -38,11 +38,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-15 17:53:10.654058",
+ "modified": "2025-02-19 22:32:11.533924",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Publisher",
- "naming_rule": "Autoincrement",
+ "naming_rule": "Expression (old style)",
  "owner": "Administrator",
  "permissions": [
   {
@@ -71,7 +71,6 @@
   },
   {
    "create": 1,
-   "delete": 1,
    "email": 1,
    "export": 1,
    "print": 1,

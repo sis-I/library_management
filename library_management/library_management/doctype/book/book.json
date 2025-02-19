@@ -20,7 +20,7 @@
   "section_break_doit",
   "description",
   "route",
-  "web_published"
+  "published"
  ],
  "fields": [
   {
@@ -84,15 +84,10 @@
    "label": "Route"
   },
   {
-   "default": "0",
-   "fieldname": "web_published",
-   "fieldtype": "Check",
-   "label": "Web Published"
-  },
-  {
    "default": "Available",
    "fieldname": "status",
    "fieldtype": "Select",
+   "in_standard_filter": 1,
    "label": "Status",
    "options": "On Loan\nAvailable"
   },
@@ -103,13 +98,19 @@
   {
    "fieldname": "column_break_1m62",
    "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "published",
+   "fieldtype": "Check",
+   "label": "published"
   }
  ],
  "has_web_view": 1,
  "index_web_pages_for_search": 1,
- "is_published_field": "web_published",
+ "is_published_field": "published",
  "links": [],
- "modified": "2025-02-19 12:47:22.484944",
+ "modified": "2025-02-19 22:57:52.892952",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Book",

@@ -10,6 +10,14 @@ def request_book_loan(book_name):
     
     try:
         book = frappe.get_doc("Book", book_name)
+        book_status = book.status
+        if book_status != "Available":
+            return {
+                "status": "warning", 
+                "message": "Book is not available for loan!",
+                "book_status": book_status
+            }
+        
         member = frappe.get_doc("Member", {"member_user": user})
         loan_exists = frappe.db.exists({
             "doctype": "Loan",
