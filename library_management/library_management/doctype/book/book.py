@@ -13,7 +13,6 @@ class Book(WebsiteGenerator):
 
         if self.total_copies < 1:
             frappe.throw('Total copies should be at least 1!')
-        
 
     def on_update(self):
 

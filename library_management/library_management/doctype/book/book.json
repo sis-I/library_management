@@ -81,8 +81,7 @@
    "default": "books",
    "fieldname": "route",
    "fieldtype": "Data",
-   "label": "Route",
-   "read_only": 1
+   "label": "Route"
   },
   {
    "default": "0",
@@ -110,7 +109,7 @@
  "index_web_pages_for_search": 1,
  "is_published_field": "web_published",
  "links": [],
- "modified": "2025-02-15 23:46:29.796459",
+ "modified": "2025-02-19 12:47:22.484944",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Book",

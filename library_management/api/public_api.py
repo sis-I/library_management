@@ -82,3 +82,6 @@ def get_authors():
     except Exception as e:
         frappe.log_error(frappe.get_traceback(), "API Error")
         return {"status": "error", "message": str(e)}
+    
+
+

@@ -1,7 +1,7 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "AU-.#####",
+ "autoname": "field:full_name",
  "creation": "2025-02-12 22:42:23.077895",
  "doctype": "DocType",
  "engine": "InnoDB",
@@ -54,11 +54,11 @@
  ],
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2025-02-15 19:30:37.989283",
+ "modified": "2025-02-19 12:28:16.242160",
  "modified_by": "Administrator",
  "module": "Library Management",
  "name": "Author",
- "naming_rule": "Autoincrement",
+ "naming_rule": "By fieldname",
  "owner": "Administrator",
  "permissions": [
   {

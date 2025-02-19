@@ -1,4 +1,57 @@
-<div>
-	<a href="/{{ doc.route |e }}">{{ (doc.title or doc.name) |e }}</a>
+<div class="container ">
+    <div class="row justify-content-center no-gutters">
+        <div class="col-md-8 col-lg-6 mb-3" style="max-height: 500px">
+            <div class="card mr-1 h-100">           
+                <div class="row no-gutters p-1">
+                    <div class="col-4">
+                        {% if doc.image %}
+                        <img  src="{{doc.image}}" class="card-img img-fluid" alt="{{doc.title}} pic">
+                        {% else %}
+                        <img  src="#" class="card-img img-fluid" alt="No image available">
+                        {% endif %}
+                    </div>
+                    <div class="col-8">
+                        <div class="card-body p-2">
+                            <a href="{{ doc.route |e}}">
+                                <h5 class="card-title text-truncate">{{ doc.title }}</h5>
+                            </a>
+                            
+                            <div class="text-center rounded mb-3" style="background-color:{% if doc.status == 'Available' %}rgb(41, 151, 54){% else %} #ccc{% endif %}">
+                                <small class="" style="color:white;" >{{ doc.status }}</small>
+                            </div>
+                            <div class="">
+                                Author: 
+                                <span>
+                                    {{ doc.author}}
+                                </span>
+                            </div>
+                            <div class="">Published by: 
+                                <span>
+                                    {{ doc.publisher or "Unknown"}}
+                                </span>
+                            </div>
+                            <div class="" style="max-height: 250px; overflow:hidden;text-overflow:clip;">
+                                <p class="card-text">
+                                    <small class="text-muted">{{doc.description|safe}}</small>
+                                </p>
+                            </div>
+                            <p class="card-text">
+                                <small class="text-muted">Publish year: {{doc.publish_date or "Unknown"}}</small>
+                            </p>
+                            <p class="card-text mt-n3">
+                                <small class="text-muted">ISBN: {{doc.isbn or ""}}</small>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col p-2 items-to-bottom">
+                    <div class="d-flex justify-content-center mt-2">
+                        <a class="col-8 btn btn-primary rounded-pill" href="{{doc.route|e}}">Borrow</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>     
 </div>
-<!-- this is a sample default list template -->
+

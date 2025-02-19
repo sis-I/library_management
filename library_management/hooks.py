@@ -137,6 +137,11 @@ app_license = "mit"
 # 	"ToDo": "custom_app.overrides.CustomToDo"
 # }
 
+# WEB HOOKS
+webhooks = {
+    "/borrow-book": "library_management.overrides.loan.request_book_loan",
+}
+
 # Document Events
 # ---------------
 # Hook on document methods and events
@@ -149,7 +154,10 @@ doc_events = {
 # 	}
     "User": {
         "after_insert": "library_management.overrides.user.assign_roles_to_new_user"
-    }
+    },
+    # "Loan": {
+    #     "before_save": "library_management.overrides.loan.request_book_loan"      
+    # }
 }
 
 # Scheduled Tasks

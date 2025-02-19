@@ -6,6 +6,10 @@ from frappe.model.document import Document
 
 
 class Author(Document):
-    def before_save(self):
+    def before_insert(self):
         self.full_name = f'{self.first_name} {self.last_name}'
+
+    def before_save(self):
+        pass
+        
         
