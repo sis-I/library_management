@@ -1,4 +1,4 @@
-import frapppe
+import frappe
 from frappe.docstatus import DocStatus
 
 @frappe.whitelist()
