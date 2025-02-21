@@ -172,7 +172,7 @@ scheduler_events = {
 # 		"library_management.tasks.monthly"
 # 	],
     "daily": [
-        "library_management.library_management.tasks.daily.send_notifiction.send_overdue_book_notification"
+        "library_management.library_management.tasks.daily.send_notification.send_overdue_book_notification"
     ]
 }
 
