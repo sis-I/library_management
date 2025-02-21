@@ -1,5 +1,5 @@
 import frappe
-from frappe.docstatus import DocStatus
+from frappe.model.docstatus import DocStatus
 
 @frappe.whitelist()
 def send_overdue_book_notification():
