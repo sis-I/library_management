@@ -54,7 +54,7 @@ def get_detail_book(name, **kwargs):
 @permission_required(["Admin", "Librarian"])
 def create_book(
         title, author, isbn=None, published_date=None, 
-        publisher=None, image=None, total_copies=1, web_published=0, **kwargs):
+        publisher=None, image=None, total_copies=1, published=0, **kwargs):
     """
     Create new book
     """

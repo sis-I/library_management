@@ -10,7 +10,7 @@ def get_books():
             "Book",
             filters={
                 "status": "Available",
-                "web_published": 1,
+                "published": 1,
             },
             fields=[
                 "name", "title", "author", "publisher", "isbn", 
@@ -33,7 +33,7 @@ def get_book(name):
             "Book", 
             filters={
                 "name": name,
-                # "web_published": 1,
+                # "published": 1,
             },
             fields=[
                 "name", "title", "author", "publisher", "isbn", 
