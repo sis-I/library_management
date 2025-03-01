@@ -7,7 +7,16 @@ app_license = "mit"
 
 # Apps
 # ------------------
+# Fixtures
+fixtures = [
+    {
+      "dt": "Role", 
+      "filters": [
+        ["role_name", "in", ["Admin", "Librarian", "Member"]]
+       ]
+    }
 
+]
 # required_apps = []
 
 # Each item in the list will be shown as an app in the apps page
