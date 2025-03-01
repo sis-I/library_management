@@ -7,7 +7,7 @@ app_license = "mit"
 
 # Apps
 # ------------------
-# Fixtures
+# Fixtures - Create fixtures before app install
 fixtures = [
     {
       "dt": "Role", 
